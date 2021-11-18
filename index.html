@@ -5,10 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Canvasone - Demo Article</title>
+    <title>Canvasone - Home Demo</title>
     <link rel="stylesheet" href="./style.css"/>
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <script src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("i.toggle-menu").click(function(){
+                $("ul.navbar-right").show();
+                $("i.toggle-menu").hide();
+                $("i.far.fa-window-close").show();
+            });
+            $("i.far.fa-window-close").click(function(){
+                $("ul.navbar-right").hide();
+                $("i.toggle-menu").show();
+                $("i.far.fa-window-close").hide();
+            });
+        });
+    </script>
 </head>
 <body>
     <main class="page-layout">
@@ -19,6 +34,7 @@
                 </div>
                 <div class="main-menu">
                     <i class="fas fa-bars toggle-menu"></i>
+                    <i class="far fa-window-close"></i>
                     <ul class="navbar-right">
                         <li><a class="nav-link"href="#hero">Home</a></li>
                         <li><a class="nav-link"href="#about">About</a></li>
