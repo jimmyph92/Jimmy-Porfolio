@@ -12,52 +12,61 @@
     <script type="text/javascript" src="./jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function(){
+            //mobile toggle menu
             $("i.toggle-menu").click(function(){
-                $("ul.navbar-right").show();
-                $("i.toggle-menu").hide();
-                $("i.far.fa-window-close").show();
+                $(this).toggleClass("fa-times");
+                $(".navbar-right").toggleClass("active");
             });
-            $("i.far.fa-window-close").click(function(){
-                $("ul.navbar-right").hide();
-                $("i.toggle-menu").show();
-                $("i.far.fa-window-close").hide();
+            //show social link on hover team photo
+            $("img.team-photo").hover(
+                function(){
+                    $(".social-profile").show();
+                },
+                function(){
+                    $(".social-profile").hide();
+                }
+            );
+            $("i.fa-chevron-right.hero-slider").click(function(){
+                $(this).next
             });
+
         });
     </script>
 </head>
 <body>
     <main class="page-layout">
         <div class="page-container">
-           <header class="main-nav">
-               <div class="logo">
+           <header class="row main-nav">
+               <div class="col-md-6 col-sm-12 col-xs-12 logo">
                     <img src="http://themes.semicolonweb.com/html/canvas/one-page/images/canvasone.png"/>
                 </div>
-                <div class="main-menu">
-                    <i class="fas fa-bars toggle-menu"></i>
-                    <i class="far fa-window-close"></i>
-                    <ul class="navbar-right">
-                        <li><a class="nav-link"href="#hero">Home</a></li>
-                        <li><a class="nav-link"href="#about">About</a></li>
-                        <li><a class="nav-link"href="#project">Works</a></li>
-                        <li><a class="nav-link"href="#services">Services</a></li>
-                        <li><a class="nav-link"href="#recent-blog">Blog</a></li>
-                        <li><a class="nav-link"href="#contact-form">Contact</a></li>
-                    </ul>
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="main-menu">
+                        <i class="fas fa-bars toggle-menu"></i>
+                        <ul class="navbar-right">
+                            <li><a class="nav-link"href="#hero">Home</a></li>
+                            <li><a class="nav-link"href="#about">About</a></li>
+                            <li><a class="nav-link"href="#project">Works</a></li>
+                            <li><a class="nav-link"href="#services">Services</a></li>
+                            <li><a class="nav-link"href="#recent-blog">Blog</a></li>
+                            <li><a class="nav-link"href="#contact-form">Contact</a></li>
+                        </ul>
+                    </div>
                 </div>
            </header>
            <section class="hero" id="hero">
                <div class="row">
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div class="img-hero col-12">
-                                <img class="slider-img" src="https://cdn.theculturetrip.com/wp-content/uploads/2021/07/banh-mi.jpg"/>
+                            <div class="img-hero col-md col-sm col-xs">
+                                <img class="slider-img img-responsive" src="https://cdn.theculturetrip.com/wp-content/uploads/2021/07/banh-mi.jpg"/>
                                 <div class="hero-click prev-next ">
-                                    <i class="fas fa-chevron-left"></i>
-                                    <i class="fas fa-chevron-right"></i>
+                                    <i class="fas fa-chevron-left hero-slider"></i>
+                                    <i class="fas fa-chevron-right hero-slider"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <div class="feature-article col-12">
+                            <div class="feature-article col-md col-sm col-xs">
                                 <p class="article-date">02 february 2021</p>
                                 <h2 class="hero-title">A Complete Recipes for Vegan People.</h2>
                                 <p class="article-summary">Many dishes have specific names, such as sauerbraten, while others have descriptive names, such as "broiled ribsteak". Many are named for particular places, sometimes because of a specific association</p>
@@ -113,8 +122,8 @@
                         <div class="col-md col-sm col-xs empty"></div>
                     </div>
                    <div class="row team-member">
-                       <div class="col-md-3 col-sm-3 col-xs-12 member-list">
-                           <img class="team-photo" src="./images/john-doe.jpg"/>
+                       <div class="col-md-4 col-sm-4 col-xs-12 member-list">
+                           <img class="img-responsive team-photo" src="./images/john-doe.jpg"/>
                            <div class="social-profile">
                             <i class="fab fa-facebook-f"></i>
                                 <i class="fab fa-twitter"></i>
@@ -125,8 +134,8 @@
                                 <span>CEO</span>
                            </div> 
                        </div>
-                       <div class="col-md-3 col-sm-3 col-xs-12 member-list">
-                            <img class="team-photo" src="./images/mary-jane.jpg"/>
+                       <div class="col-md-4 col-sm-4 col-xs-12 member-list">
+                            <img class="img-responsive team-photo" src="./images/mary-jane.jpg"/>
                             <div class="social-profile">
                                 <i class="fab fa-twitter"></i>
                                 <i class="fab fa-linkedin"></i>
@@ -137,8 +146,8 @@
                                 <span>Co-Founder</span>
                            </div> 
                         </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 member-list">
-                            <img class="team-photo" src="./images/josh-clark.jpg"/>
+                        <div class="col-md-4 col-sm-4 col-xs-12 member-list">
+                            <img class="img-responsive team-photo" src="./images/josh-clark.jpg"/>
                             <div class="social-profile">
                                 <i class="fab fa-twitter"></i>
                                 <i class="fab fa-vimeo"></i>
@@ -154,40 +163,11 @@
            </section>
            <section class="project" id="project">
                <div class="project-description">
-                   <h2>We create & craft projects that ooze creativity in every aspect. We try to create a benchmark in everything we do. Take a moment to browse through some of our recent completed work.</h2>
+                   <h2>We create and craft projects that ooze creativity in every aspect. We try to create a benchmark in everything we do. Take a moment to browse through some of our recent completed work.</h2>
                </div>
-               <div class="grid-wrapper project-list">
-                   <div class="big project-item">
-                       <img src="./images/canvas1.jpg"/>
-                       <div class="relative-hover">
-                            <a href="#">Open Imagination</a>
-                            <div class="category-project">
-                                <a href="#">Media</a>
-                                <a href="#">Icons</a>
-                            </div> 
-                        </div>
-                   </div>
-                    <div class="project-item">
-                        <img src="./images/canvas2.jpg"/>
-                        <div class="relative-hover">
-                            <a href="#">Locked Steel Gate</a>
-                            <div class="category-project">
-                                <a href="#">Illustration</a>
-                            </div>  
-                        </div>
-                    </div>
-                    <div class="project-item">
-                        <img src="./images/canvas3.jpg"/>
-                        <div class="relative-hover">
-                            <a href="#">Mac Sunglas</a>
-                            <div class="category-project">
-                                <a href="#">Classic</a>
-                                <a href="#">UI Element</a>
-                            </div> 
-                        </div>
-                    </div>
-                    <div class="project-item">
-                        <img src="./images/canvas4.jpg"/>
+                <div class="row project-list">
+                    <div class="col-md-4 col-sm-6 col-xs-12 project-item">
+                        <img class="item-img img-responsive img-thumbnail" src="./images/canvas1.jpg"/>
                         <div class="relative-hover">
                             <a href="#">Open Imagination</a>
                             <div class="category-project">
@@ -196,71 +176,95 @@
                             </div> 
                         </div>
                     </div>
-                    <div class="project-item">
-                        <img src="./images/canvas5.jpg"/>
-                        <div class="relative-hover">
-                            <a href="#">Console Activity</a>
-                            <div class="category-project">
-                                <a href="#">UI Element</a>
-                                <a href="#">Media</a>
-                            </div> 
-                        </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12 project-item">
+                            <img class="item-img img-responsive img-thumbnail" src="./images/canvas2.jpg"/>
+                            <div class="relative-hover">
+                                <a href="#">Locked Steel Gate</a>
+                                <div class="category-project">
+                                    <a href="#">Illustration</a>
+                                </div>  
+                            </div>
                     </div>
-                    <div class="project-item">
-                        <img src="./images/canvas6.jpg"/>
-                        <div class="relative-hover">
-                            <a href="#">Open Imagination</a>
-                            <div class="category-project">
-                                <a href="#">Media</a>
-                                <a href="#">Icons</a>
-                            </div> 
-                        </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12 project-item">
+                            <img class="item-img img-responsive img-thumbnail" src="./images/canvas3.jpg"/>
+                            <div class="relative-hover">
+                                <a href="#">Mac Sunglas</a>
+                                <div class="category-project">
+                                    <a href="#">Classic</a>
+                                    <a href="#">UI Element</a>
+                                </div> 
+                            </div>
                     </div>
-                    <div class="project-item">
-                        <img src="./images/canvas7.jpg"/>
-                        <div class="relative-hover">
-                            <a href="#">Backpack Content</a>
-                            <div class="category-project">
-                                <a href="#">UI Element</a>
-                                <a href="#">Icons</a>
-                            </div> 
-                        </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12 project-item">
+                            <img class="item-img img-responsive img-thumbnail" src="./images/canvas4.jpg"/>
+                            <div class="relative-hover">
+                                <a href="#">Open Imagination</a>
+                                <div class="category-project">
+                                    <a href="#">Media</a>
+                                    <a href="#">Icons</a>
+                                </div> 
+                            </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12 project-item">
+                            <img class="item-img img-responsive img-thumbnail" src="./images/canvas5.jpg"/>
+                            <div class="relative-hover">
+                                <a href="#">Console Activity</a>
+                                <div class="category-project">
+                                    <a href="#">UI Element</a>
+                                    <a href="#">Media</a>
+                                </div> 
+                            </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12 project-item">
+                            <img class="item-img img-responsive img-thumbnail" src="./images/canvas6.jpg"/>
+                            <div class="relative-hover">
+                                <a href="#">Open Imagination</a>
+                                <div class="category-project">
+                                    <a href="#">Media</a>
+                                    <a href="#">Icons</a>
+                                </div> 
+                            </div>
                     </div>
                 </div>
-                <div class="project-morelink">
-                    <a href="#">View More Projects</a>
+                <div class="row">
+                    <div class="col-md col-sm col-xs">
+                        <div class="project-morelink">
+                            <a href="#">View More Projects</a>
+                        </div>
+                    </div>
                 </div>              
            </section>
            <section class="services" id="services">
                 <div class="services-description">
-                    <h2>We enjoy working on the Services & Products we provide as much as you need them. This help us in delivering your Goals easily. Browse through the wide range of services we provide.</h2>
+                    <h2>We enjoy working on the Services and Products we provide as much as you need them. This help us in delivering your Goals easily. Browse through the wide range of services we provide.</h2>
                 </div>
                 <div class="services-detail">
-                    <img class="services-feature"src="https://images.squarespace-cdn.com/content/v1/58b58a96f5e231aa75f48ec4/1592228976060-03HO68GMA4RI2RB6XAXS/design-meet-revise-repeat-thumbnail.jpg" width="100%"/>
-                    <div class="services-item">
-                        <a href="#"><img src="http://hethongbokhoe.com/wp-content/uploads/imager_1_1824_700.jpg" width="100%"/></a>
-                        <h3 class="services-item-title">Responsive Framework</h3>
-                    </div>
-                    <div class="services-item">
-                        <a href="#"><img src="https://e7.pngegg.com/pngimages/865/797/png-clipart-computer-icons-adobe-illustrator-analytics-encapsulated-postscript-scalable-graphics-computer-icons-analytics.png" width="100%"/></a>
-                        <h3 class="services-item-title">Beautiful Presented</h3>
-                    </div>
-                    <div class="services-item">
-                        <a href="#"><img src="https://pic.onlinewebfonts.com/svg/img_405.png" width="100%"/></a>
-                        <h3 class="services-item-title">Extensively Extendable</h3>
-                    </div>
-                    <div class="services-item">
-                        <a href="#"><img src="https://thumbs.dreamstime.com/b/setting-icon-isolated-white-background-vector-cog-settings-symbol-gear-185583413.jpg" width="100%"/></a>
-                        <h3 class="services-item-title">Powerful Customizable</h3>
-                    </div>
-                    <div class="services-item">
-                        <a href="#"><img src="https://www.clipartmax.com/png/middle/277-2778040_atom-react-native-icon-png.png" width="100%"/></a>
-                        <h3 class="services-item-title">GENIUSLY TRANSFORMABLE</h3>
-                    </div>
-                    <div class="services-item">
-                        <a href="#"><img src="https://img.favpng.com/13/10/1/computer-icons-scalable-vector-graphics-portable-network-graphics-illustration-png-favpng-pKcYKNdjqnY7kZJHDBtMVRHUs_t.jpg" width="100%"/></a>
-                        <h3 class="services-item-title">INDUSTRIAL SUPPORT</h3>
-                    </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 col-xs-12 services-item">
+                                <a href="#"><img class="img-responsive"src="http://hethongbokhoe.com/wp-content/uploads/imager_1_1824_700.jpg"/></a>
+                                <h3 class="services-item-title">Responsive Framework</h3>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12 services-item">
+                                <a href="#"><img class="img-responsive"src="https://e7.pngegg.com/pngimages/865/797/png-clipart-computer-icons-adobe-illustrator-analytics-encapsulated-postscript-scalable-graphics-computer-icons-analytics.png"/></a>
+                                <h3 class="services-item-title">Beautiful Presented</h3>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12 services-item">
+                                <a href="#"><img class="img-responsive"src="https://pic.onlinewebfonts.com/svg/img_405.png"/></a>
+                                <h3 class="services-item-title">Extensively Extendable</h3>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12 services-item">
+                                <a href="#"><img class="img-responsive"src="https://thumbs.dreamstime.com/b/setting-icon-isolated-white-background-vector-cog-settings-symbol-gear-185583413.jpg"/></a>
+                                <h3 class="services-item-title">Powerful Customizable</h3>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12 services-item">
+                                <a href="#"><img class="img-responsive"src="https://www.clipartmax.com/png/middle/277-2778040_atom-react-native-icon-png.png"/></a>
+                                <h3 class="services-item-title">GENIUSLY TRANSFORMABLE</h3>
+                            </div>
+                            <div class="col-md-4 col-sm-6 col-xs-12 services-item">
+                                <a href="#"><img class="img-responsive" src="https://img.favpng.com/13/10/1/computer-icons-scalable-vector-graphics-portable-network-graphics-illustration-png-favpng-pKcYKNdjqnY7kZJHDBtMVRHUs_t.jpg"/></a>
+                                <h3 class="services-item-title">INDUSTRIAL SUPPORT</h3>
+                            </div>
+                        </div>
                 </div>
                 <div class="callaction">
                     <h2>Like Our Services? Get an <a class="action-btn" href="#">Instant Quote</a></h2>  
