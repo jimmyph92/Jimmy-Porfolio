@@ -1,2 +1,2 @@
-# canvasonepage
-canvas one page WP Theme clone
+# jimmyporfolio
+my porfolio on github
